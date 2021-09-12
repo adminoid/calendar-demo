@@ -5,13 +5,16 @@ module.exports = {
     node: true
   },
 
-  'extends': [
+  extends: [
     'plugin:vue/vue3-essential',
-    '@vue/typescript'
+    '@vue/typescript',
+    '@vue/standard',
+    '@vue/typescript/recommended'
   ],
 
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020
   },
 
   rules: {
@@ -20,6 +23,15 @@ module.exports = {
   },
 
   overrides: [
+    {
+      files: [
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
+      ],
+      env: {
+        jest: true
+      }
+    },
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
